@@ -1,0 +1,28 @@
+# ESP-IDF Build Output
+build/
+build_output.txt
+cmake_output.txt
+
+# Generated Config
+sdkconfig.old
+
+# Python
+__pycache__/
+*.py[oc]
+
+# IDE
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Dependencies
+managed_components/
+
+# ESP-IDF toolchain local
+.espressif/
+
+# Debug
+*.elf
+*.map
