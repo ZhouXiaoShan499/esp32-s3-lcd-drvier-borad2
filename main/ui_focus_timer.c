@@ -119,7 +119,7 @@ lv_obj_t *ui_focus_timer_create(void)
     label_timer = lv_label_create(timer_box);
     lv_label_set_text(label_timer, "01:28:46");
     lv_obj_set_style_text_color(label_timer, lv_color_hex(0x00FF88), LV_PART_MAIN);
-    lv_obj_set_style_text_font(label_timer, &lv_font_montserrat_36, LV_PART_MAIN);
+    lv_obj_set_style_text_font(label_timer, &lv_font_montserrat_32, LV_PART_MAIN);
 
     label_timer_sub = lv_label_create(timer_box);
     lv_label_set_text(label_timer_sub, "本次专注时长");
