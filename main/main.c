@@ -15,6 +15,7 @@
 #include "LCD_Driver/ST7701S.h"
 #include "Touch/GT911.h"
 #include "demos/lv_demos.h"
+#include "ui_focus_timer.h"
 
 #define LEDC_TIMER              LEDC_TIMER_0
 #define LEDC_MODE               LEDC_LOW_SPEED_MODE
@@ -362,6 +363,7 @@ void app_main(void)
 /********************* Demo *********************/
     #if defined CONFIG_LV_USE_DEMO_WIDGETS 
         lv_demo_widgets();
+        ui_focus_timer_create();
     #elif defined CONFIG_LV_USE_DEMO_KEYPAD_AND_ENCODER
         lv_demo_keypad_encoder();
     #elif defined CONFIG_LV_USE_DEMO_BENCHMARK
