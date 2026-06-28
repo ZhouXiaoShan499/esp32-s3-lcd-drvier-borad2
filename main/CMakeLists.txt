@@ -1,6 +1,7 @@
 idf_component_register(
                         SRCS  "main.c" 
                               "ui_focus_timer.c"
+                              "ui_device_settings.c"
                               "LCD_Driver/ST7701S.c" 
                               "Touch/GT911.c"
                               "Touch/esp_lcd_touch/esp_lcd_touch.c" 

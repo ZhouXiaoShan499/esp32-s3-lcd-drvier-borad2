@@ -1,5 +1,6 @@
 #include "ui_focus_timer.h"
 #include "lvgl.h"
+#include "ui_device_settings.h"
 #include <stdio.h>
 
 /* Built-in SimSun 16px CJK font for Chinese characters */
@@ -57,6 +58,13 @@ static void brightness_event_cb(lv_event_t *e)
     lv_label_set_text(label_light_status, display);
 }
 
+/* ====== Settings button callback ====== */
+static void settings_btn_cb(lv_event_t *e)
+{
+    ui_device_settings_create(screen);
+}
+
+/* ====== Create the focus timer UI ====== */
 
 /* ====== Create the focus timer UI ====== */
 lv_obj_t *ui_focus_timer_create(void)
@@ -101,6 +109,19 @@ lv_obj_t *ui_focus_timer_create(void)
     lv_obj_set_style_radius(badge, 8, LV_PART_MAIN);
     lv_obj_set_style_pad_hor(badge, 8, LV_PART_MAIN);
     lv_obj_set_style_pad_ver(badge, 2, LV_PART_MAIN);
+    lv_obj_set_style_pad_ver(badge, 2, LV_PART_MAIN);
+
+    /* Settings button */
+    static lv_obj_t *settings_btn = lv_btn_create(row1);
+    lv_obj_set_size(settings_btn, 30, 30);
+    lv_obj_set_style_bg_color(settings_btn, lv_color_hex(0x1a2744), LV_PART_MAIN);
+    lv_obj_set_style_radius(settings_btn, 6, LV_PART_MAIN);
+    lv_obj_set_style_border_width(settings_btn, 0, LV_PART_MAIN);
+    lv_obj_t *settings_icon = lv_label_create(settings_btn);
+    lv_label_set_text(settings_icon, LV_SYMBOL_SETTINGS);
+    lv_obj_set_style_text_color(settings_icon, lv_color_hex(0xAAAAAA), LV_PART_MAIN);
+    lv_obj_center(settings_icon);
+    lv_obj_add_event_cb(settings_btn, settings_btn_cb, LV_EVENT_CLICKED, NULL);
 
     /* Spacer */
     lv_obj_t *sp1 = lv_obj_create(cont);
