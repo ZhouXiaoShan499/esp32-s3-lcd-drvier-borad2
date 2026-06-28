@@ -2,9 +2,6 @@
 #include "lvgl.h"
 #include <stdio.h>
 
-/* Built-in SimSun 16px CJK font for Chinese characters */
-extern const lv_font_t lv_font_simsun_16_cjk;
-
 /* ====== Global UI objects ====== */
 static lv_obj_t *screen = NULL;
 static lv_obj_t *label_status = NULL;
@@ -90,12 +87,12 @@ lv_obj_t *ui_focus_timer_create(void)
     label_status = lv_label_create(row1);
     lv_label_set_text(label_status, "当前状态：电脑办公");
     lv_obj_set_style_text_color(label_status, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
-    lv_obj_set_style_text_font(label_status, &lv_font_simsun_16_cjk, LV_PART_MAIN);
+    lv_obj_set_style_text_font(label_status, &lv_font_montserrat_16, LV_PART_MAIN);
 
     lv_obj_t *badge = lv_label_create(row1);
     lv_label_set_text(badge, "自动识别");
     lv_obj_set_style_text_color(badge, lv_color_hex(0x00FF88), LV_PART_MAIN);
-    lv_obj_set_style_text_font(badge, &lv_font_simsun_16_cjk, LV_PART_MAIN);
+    lv_obj_set_style_text_font(badge, &lv_font_montserrat_12, LV_PART_MAIN);
     lv_obj_set_style_bg_color(badge, lv_color_hex(0x0a3d2e), LV_PART_MAIN);
     lv_obj_set_style_bg_opa(badge, LV_OPA_COVER, LV_PART_MAIN);
     lv_obj_set_style_radius(badge, 8, LV_PART_MAIN);
@@ -127,13 +124,13 @@ lv_obj_t *ui_focus_timer_create(void)
     label_timer_sub = lv_label_create(timer_box);
     lv_label_set_text(label_timer_sub, "本次专注时长");
     lv_obj_set_style_text_color(label_timer_sub, lv_color_hex(0xAAAAAA), LV_PART_MAIN);
-    lv_obj_set_style_text_font(label_timer_sub, &lv_font_simsun_16_cjk, LV_PART_MAIN);
+    lv_obj_set_style_text_font(label_timer_sub, &lv_font_montserrat_14, LV_PART_MAIN);
 
     /* Daily stats */
     label_daily = lv_label_create(cont);
     lv_label_set_text(label_daily, "今日累计：4h12m  休息：45m");
     lv_obj_set_style_text_color(label_daily, lv_color_hex(0xCCCCCC), LV_PART_MAIN);
-    lv_obj_set_style_text_font(label_daily, &lv_font_simsun_16_cjk, LV_PART_MAIN);
+    lv_obj_set_style_text_font(label_daily, &lv_font_montserrat_14, LV_PART_MAIN);
     lv_obj_set_style_text_align(label_daily, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN);
 
     /* Activity checkboxes */
@@ -148,26 +145,22 @@ lv_obj_t *ui_focus_timer_create(void)
     cb_study = lv_checkbox_create(row_cb);
     lv_checkbox_set_text(cb_study, "学习");
     lv_obj_set_style_text_color(cb_study, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
-    lv_obj_set_style_text_font(cb_study, &lv_font_simsun_16_cjk, LV_PART_MAIN);
     lv_obj_add_event_cb(cb_study, checkbox_event_cb, LV_EVENT_VALUE_CHANGED, (void *)"学习");
 
     cb_read = lv_checkbox_create(row_cb);
     lv_checkbox_set_text(cb_read, "看书");
     lv_obj_set_style_text_color(cb_read, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
-    lv_obj_set_style_text_font(cb_read, &lv_font_simsun_16_cjk, LV_PART_MAIN);
     lv_obj_add_event_cb(cb_read, checkbox_event_cb, LV_EVENT_VALUE_CHANGED, (void *)"看书");
 
     cb_phone = lv_checkbox_create(row_cb);
     lv_checkbox_set_text(cb_phone, "手机");
     lv_obj_set_style_text_color(cb_phone, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
-    lv_obj_set_style_text_font(cb_phone, &lv_font_simsun_16_cjk, LV_PART_MAIN);
     lv_obj_add_event_cb(cb_phone, checkbox_event_cb, LV_EVENT_VALUE_CHANGED, (void *)"手机");
 
     cb_rest = lv_checkbox_create(row_cb);
     lv_checkbox_set_text(cb_rest, "休息");
     lv_obj_set_style_text_color(cb_rest, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
     lv_obj_add_event_cb(cb_rest, checkbox_event_cb, LV_EVENT_VALUE_CHANGED, (void *)"休息");
-    lv_obj_set_style_text_font(cb_rest, &lv_font_simsun_16_cjk, LV_PART_MAIN);
 
     /* Divider */
     lv_obj_t *div = lv_obj_create(cont);
@@ -189,7 +182,7 @@ lv_obj_t *ui_focus_timer_create(void)
     label_light_status = lv_label_create(row_light);
     lv_label_set_text(label_light_status, "○关灯  ○调暗  ●调亮");
     lv_obj_set_style_text_color(label_light_status, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
-    lv_obj_set_style_text_font(label_light_status, &lv_font_simsun_16_cjk, LV_PART_MAIN);
+    lv_obj_set_style_text_font(label_light_status, &lv_font_montserrat_16, LV_PART_MAIN);
 
     slider_brightness = lv_slider_create(row_light);
     lv_obj_set_size(slider_brightness, LV_PCT(80), 8);
