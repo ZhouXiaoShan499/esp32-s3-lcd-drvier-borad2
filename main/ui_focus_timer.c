@@ -112,7 +112,7 @@ lv_obj_t *ui_focus_timer_create(void)
     lv_obj_set_style_pad_ver(badge, 2, LV_PART_MAIN);
 
     /* Settings button */
-    static lv_obj_t *settings_btn = lv_btn_create(row1);
+    lv_obj_t *settings_btn = lv_btn_create(row1);
     lv_obj_set_size(settings_btn, 30, 30);
     lv_obj_set_style_bg_color(settings_btn, lv_color_hex(0x1a2744), LV_PART_MAIN);
     lv_obj_set_style_radius(settings_btn, 6, LV_PART_MAIN);

@@ -44,8 +44,7 @@ static void menu_click_cb(lv_event_t *e)
 {
     lv_obj_t *target = lv_event_get_target(e);
     lv_obj_t *label = lv_obj_get_child(target, 0);
-    const char *text = lv_label_get_text(label);
-    LV_LOG_USER("Menu clicked: %s", text);
+    LV_LOG_USER("Menu clicked: %s", lv_label_get_text(label));
 }
 
 static void back_btn_cb(lv_event_t *e)
